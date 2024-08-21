@@ -1,3 +1,4 @@
+
 export const personalData = {
   name: "Umair Ahmed",
   profile: '/profile.png',
@@ -13,5 +14,5 @@ export const personalData = {
   stackOverflow: 'https://stackoverflow.com/users/16840768/abu-said',
   leetcode: "hhttps://leetcode.com/u/rhoND1NUui/",
   devUsername: "UmairAhmed29",
-  resume: "https://docs.google.com/document/d/1djsP89_Bt5zPdDznzJseGeqie04PpjB3SZTIZkSscnE/edit?usp=sharing"
+  resume: "/resume/UmairAhmed-SoftwareEngineer.pdf"
 }
