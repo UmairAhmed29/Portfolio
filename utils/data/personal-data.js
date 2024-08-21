@@ -11,7 +11,7 @@ export const personalData = {
   facebook: 'https://www.facebook.com/umair.ahmed.50999/',
   linkedIn: 'https://www.linkedin.com/in/muhammad-umair-ahmed-khan/',
   twitter: 'https://twitter.com/said7388',
-  stackOverflow: 'https://stackoverflow.com/users/16840768/abu-said',
+  stackOverflow: 'https://stackoverflow.com/users/26857502/umair-ahmed',
   leetcode: "hhttps://leetcode.com/u/rhoND1NUui/",
   devUsername: "UmairAhmed29",
   resume: "/resume/UmairAhmed-SoftwareEngineer.pdf"
