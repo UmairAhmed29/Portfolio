@@ -27,6 +27,12 @@ export default async function Home() {
 
   return (
     <>
+    <iframe
+    src="https://www.chatbase.co/chatbot-iframe/U5dceI9pdVss97vNwfWPj"
+    width="100%"
+    style="height: 100%; min-height: 700px"
+    frameborder="0"
+    ></iframe>
       <HeroSection />
       <AboutSection />
       <Experience />
