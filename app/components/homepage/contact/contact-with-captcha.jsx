@@ -28,40 +28,41 @@ function ContactWithCaptcha() {
 
   const handleSendMail = async (e) => {
     e.preventDefault();
-    if (!captcha) {
-      toast.error('Please complete the captcha!');
-      return;
-    };
 
-    if (!input.email || !input.message || !input.name) {
+    // Ensure all required fields are filled
+    if (!userInput.email || !userInput.message || !userInput.name) {
       setError({ ...error, required: true });
       return;
     } else if (error.email) {
       return;
     } else {
       setError({ ...error, required: false });
-    };
-
-    const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-    const templateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-    const options = { publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY };
+    }
 
     try {
-      const res = await emailjs.send(serviceID, templateID, userInput, options);
-      const teleRes = await axios.post(`${process.env.NEXT_PUBLIC_APP_URL}/api/contact`, userInput);
+      const res = await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+        {
+          name: userInput.name,
+          email: userInput.email,
+          message: userInput.message,
+          to_email: "umairahmed5544@gmail.com",
+        },
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+      );
 
-      if (res.status === 200 || teleRes.status === 200) {
-        toast.success('Message sent successfully!');
+      if (res.status === 200) {
+        toast.success("Message sent successfully!");
         setUserInput({
-          name: '',
-          email: '',
-          message: '',
+          name: "",
+          email: "",
+          message: "",
         });
-        setCaptcha(null);
-      };
+      }
     } catch (error) {
-      toast.error(error?.text || error);
-    };
+      toast.error("Failed to send the message. Please try again.");
+    }
   };
 
   return (

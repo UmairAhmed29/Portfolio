@@ -1,10 +1,9 @@
 "use client";
-// @flow strict
 import { isValidEmail } from '@/utils/check-email';
-import axios from 'axios';
 import { useState } from 'react';
 import { TbMailForward } from "react-icons/tb";
 import { toast } from 'react-toastify';
+import emailjs from 'emailjs-com';
 
 function ContactWithoutCaptcha() {
   const [error, setError] = useState({ email: false, required: false });
@@ -29,27 +28,32 @@ function ContactWithoutCaptcha() {
       return;
     } else {
       setError({ ...error, required: false });
-    };
-
-    const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-    const templateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-    const options = { publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY };
+    }
 
     try {
-      const res = await emailjs.send(serviceID, templateID, userInput, options);
-      const teleRes = await axios.post(`${process.env.NEXT_PUBLIC_APP_URL}/api/contact`, userInput);
+      const res = await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+        {
+          name: userInput.name,
+          email: userInput.email,
+          message: userInput.message,
+          to_email: "umairahmed5544@gmail.com",
+        },
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+      );
 
-      if (res.status === 200 || teleRes.status === 200) {
-        toast.success('Message sent successfully!');
+      if (res.status === 200) {
+        toast.success("Message sent successfully!");
         setUserInput({
-          name: '',
-          email: '',
-          message: '',
+          name: "",
+          email: "",
+          message: "",
         });
-      };
+      }
     } catch (error) {
-      toast.error(error?.text || error);
-    };
+      toast.error("Failed to send the message. Please try again.");
+    }
   };
 
   return (
