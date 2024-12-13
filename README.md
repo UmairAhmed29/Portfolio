@@ -79,5 +79,5 @@ This project is licensed under the MIT License. See the `LICENSE` file for detai
 If you have any questions or feedback, feel free to reach out:
 
 - Email: umairahmed5544@gmail.com
-- LinkedIn: [[Your LinkedIn Profile](https://www.linkedin.com/in/yourprofile)](https://www.linkedin.com/in/muhammad-umair-ahmed-3731871a5)
-- GitHub: [[@yourusername](https://github.com/yourusername)](https://github.com/UmairAhmed29)
+- LinkedIn: (https://www.linkedin.com/in/yourprofile)](https://www.linkedin.com/in/muhammad-umair-ahmed-3731871a5)
+- GitHub: (https://github.com/UmairAhmed29)
