@@ -16,6 +16,7 @@ export const skillsData = [
   'Nginx',
   'Python',
   'Next JS',
+  'Firebase',
 
 ]
 

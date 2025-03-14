@@ -14,5 +14,5 @@ export const personalData = {
   stackOverflow: "https://stackoverflow.com/users/26857502/umair-ahmed",
   leetcode: "hhttps://leetcode.com/u/rhoND1NUui/",
   devUsername: "UmairAhmed29",
-  resume: "/resume/UmairAhmed-SoftwareEngineer.pdf",
+  resume: "/resume/Muhammad Umair Ahmed _ Software Engineer (6).pdf", 
 };
